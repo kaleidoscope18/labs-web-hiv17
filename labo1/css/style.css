@@ -1,0 +1,49 @@
+.body {
+    width: 200px;
+    max-width: 80%;
+    height: 300px;
+    max-height: 80%;
+}
+
+.navigation{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    list-style-type: none; /*enlève les puces*/
+
+    font-family: "Arial Narrow";
+    font-size: 20px;
+}
+
+.navigation li {
+    margin: 10px;
+    text-shadow: none;
+    text-align: center;
+
+}
+
+.navigation li:hover {
+    text-shadow: 4px 4px 4px crimson;
+}
+
+.header{
+    font-family: 'Pacifico', serif;
+    font-size: 48px;
+    text-shadow: 4px 4px 4px #aaa;
+    text-align: center;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.imageblock p{
+    color: darkcyan;
+    font-weight: bold;
+    font-size: 15px;
+    text-align: center;
+}

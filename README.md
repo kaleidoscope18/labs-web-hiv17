@@ -1,1 +1,5 @@
-# labs-web-hiv17
+# Laboratoires
+
+Chaque laboratoire est dans son propre fichier
+
+## Javascript IDE : WebStorm
