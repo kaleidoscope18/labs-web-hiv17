@@ -1,7 +1,7 @@
-var carousel = document.getElementById('carousel');
+var speed = 1000;
 
-var elements = carousel.getElementsByClassName("hideable"); // gets all the "slides" in our slideshow
-var circles = carousel.getElementsByClassName("circle");
+var elements = document.getElementsByClassName("hideable"); // gets all the "slides" in our slideshow
+var circles = document.getElementsByClassName("circle");
 
 var nextBtn = document.getElementById("next");
 var prevBtn = document.getElementById("prev");
@@ -23,6 +23,8 @@ function changeToSlide(slide)
         circles[slide].setAttribute("active", "true");
 
         activeSlide = slide;
+
+        clearInterval(autoSwitcher);
     }
 }
 
@@ -68,9 +70,15 @@ function prevSlide(){
 nextBtn.onclick = function()
 {
     nextSlide();
+    clearInterval(autoSwitcher);
 };
 
 prevBtn.onclick = function()
 {
     prevSlide();
+    clearInterval(autoSwitcher);
 };
+
+var autoSwitcher = setInterval(function() {
+    nextSlide();
+}, speed);
