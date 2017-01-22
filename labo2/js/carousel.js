@@ -1,4 +1,4 @@
-var speed = 1000;
+var speed = 5000;
 
 var elements = document.getElementsByClassName("hideable"); // gets all the "slides" in our slideshow
 var circles = document.getElementsByClassName("circle");
@@ -70,13 +70,11 @@ function prevSlide(){
 nextBtn.onclick = function()
 {
     nextSlide();
-    clearInterval(autoSwitcher);
 };
 
 prevBtn.onclick = function()
 {
     prevSlide();
-    clearInterval(autoSwitcher);
 };
 
 var autoSwitcher = setInterval(function() {

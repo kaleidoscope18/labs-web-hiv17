@@ -1,11 +1,4 @@
-.images {
-    width: 500px;
-    height: 500px;
-    margin: auto;
-}
-
 .images img {
-    display: block;
     position: absolute;
     transition: opacity 1000ms;
 }
@@ -18,23 +11,66 @@
     opacity: 1;
 }
 
-.buttons {
-    width: 10%;
-    margin: auto;
+#carousel{
+    position: relative; /* everything in it will be positioned in relation of this div */
+    width: 500px;
+    height: 500px;
+    margin: auto; /* center the carousel */
 }
 
-li {
-    list-style-type: none;
+.buttons{
+    position: relative;
+    top: 50%;
+    height: 100%;
+    font-weight: bolder;
+}
+
+#next {
+    cursor: pointer;
+    float: right;
+    -webkit-transform: translateX(100%);
+    transform: translateX(100%);
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-left: 15px solid #000;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+}
+
+#next:hover {
+    -webkit-transform: translateX(150%);
+    transform: translateX(150%);
+}
+
+#prev {
+    cursor: pointer;
+    float: left;
+    border-top: 15px solid transparent;
+    border-bottom: 15px solid transparent;
+    border-right: 15px solid #000;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+}
+
+#prev:hover {
+    -webkit-transform: translateX(-150%);
+    transform: translateX(-150%);
 }
 
 #circles {
     display: flex;
     flex-direction: row;
     position: absolute;
+    align-items: center;
+    top: 90%;
     left: 50%;
     -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
-    bottom:5%;
+    z-index: 1;
 }
 
 .circle {
@@ -44,19 +80,17 @@ li {
     width: 15px;
     border-radius: 10px;
     -webkit-border-radius: 10px;
+    transition: 500ms ease-in-out;
 }
 
 .circle[active="true"] {
     background-color: #98cc1f;
 }
 
-#carousel {
-    width: auto;
-    height:auto;
-    margin: auto;
-    position:relative;
-}
-
 .circle:hover{
+    cursor: pointer;
     background-color: #98cc1f;
+    -webkit-transform: scale(2);
+    -ms-transform: scale(2);
+    transform: scale(2);
 }
