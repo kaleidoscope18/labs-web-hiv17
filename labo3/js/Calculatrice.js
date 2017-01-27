@@ -29,13 +29,19 @@
          return this;
      }
      this.factorial = function() {
-         factorial(this.number);
+         this.number = factorial(this.number);
          return this;
      }
-     function factorial(number) {
-         if (number > 1){
-             this.number *= (number - 1);
-             factorial(number - 1);
+
+     function factorial(num) {
+         if (num > 1){
+             return num * factorial(num - 1);
+         }
+         else if (num == 0 || num == 1) {
+             return 1;
+         }
+         else {
+             return NaN;
          }
      }
  };
