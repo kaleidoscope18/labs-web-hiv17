@@ -3,7 +3,7 @@
  */
 
 
-function getGeoLoc(){
+function getGeoloc(){
     navigator.geolocation.getCurrentPosition(updatePosition);
 }
 
@@ -12,4 +12,4 @@ function updatePosition(position){
         "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
 }
 
-getGeoLoc();
+document.getElementById("refresh-geoloc-button").onclick = getGeoloc;
