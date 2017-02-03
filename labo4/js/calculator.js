@@ -37,7 +37,11 @@ var Calculator = function () {
         equation = '';
         return this;
     }
-    
+
+    this.append = function(value) {
+        equation += value;
+    }
+
     this.add = function(value) {
         equation += '+';
         if(typeof value !== 'undefined'){
