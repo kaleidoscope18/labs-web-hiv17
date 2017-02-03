@@ -9,10 +9,16 @@ var operator = calculator.value;
 var displayString = '';
 
 var generateUI = function() {
+    generateDisplay(); //TO ADD
     generateButtons();
 }
 
+var generateDisplay = function() {
+    $("#calculator").append($('<div id="display"></div>'));
+}
+
 var generateButtons = function() {
+    $("#calculator").append($('<div id="buttons"></div>')); //TO ADD
     var symbols = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "+", "-", "*", "/", "="];
     for(var i = 0; i < 10; i++){
         createButton(symbols[i], onNumberButton(symbols[i]));
@@ -22,10 +28,12 @@ var generateButtons = function() {
     }
 }
 
-var createButton = function(symbol, callback){
-    var btn = $('<input type="button" value="'+symbol+'"/>');
+var createNumberButton = function(number){
+    var btn = $('<input type="button" value="'+number+'"/>');
     $("#buttons").append(btn);
-    btn.click(callback);
+    btn.click(function(){
+        calculator.value(number);
+    });
 }
 
 var onNumberButton = function(symbol) {
