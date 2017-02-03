@@ -3,13 +3,21 @@
  */
 
 
-function getGeoloc(){
-    navigator.geolocation.getCurrentPosition(updatePosition);
-}
 
-function updatePosition(position){
-    document.getElementById("location-display").textContent =
-        "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude;
-}
+$(document).ready( function() {
+    function getGeoloc(){
+        navigator.geolocation.getCurrentPosition(updatePosition);
+    }
 
-document.getElementById("refresh-geoloc-button").onclick = getGeoloc;
+    function updatePosition(position){
+        $("#location-display").html(
+            "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+    }
+
+    $("#refresh-geoloc-button").click(function (event) {
+        getGeoloc();
+    })
+});
+
+
+
