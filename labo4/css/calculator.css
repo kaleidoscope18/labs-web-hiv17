@@ -1,0 +1,41 @@
+#calculator{
+    background-color: aqua;
+    width: 200px;
+}
+
+#head{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    height: 20px;
+    background-color: blueviolet;
+    padding: 2px;
+}
+
+#head input{
+    width: 15%;
+    margin: 1px;
+    border: none;
+}
+
+#display{
+    background-color: aliceblue;
+    flex-grow: 1;
+    margin-left: 0.5%;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    background-color: aqua;
+    justify-content: center;
+}
+
+#buttons input{
+    background-color: lightblue;
+    width: 21%;
+    border: none;
+    margin: 1%;
+}
