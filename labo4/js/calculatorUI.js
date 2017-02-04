@@ -110,9 +110,9 @@ $(document).ready( function() {
 
     function updatePosition(position){
         console.log('ok');
-        //value = '';
-        //calculator.clear();
-        //operator = calculator.value;
+        value = '';
+        calculator.clear();
+        operator = calculator.value;
         $("#result-display").html(
             "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
     }
