@@ -1,6 +1,9 @@
 #calculator{
-    background-color: aqua;
     width: 300px;
+    border: dashed;
+    border-color: crimson;
+    background-color: rgba(255, 20, 65, 0.47);
+    border-radius: 5%;
 }
 
 #head{
@@ -8,7 +11,6 @@
     flex-direction: row;
     flex-wrap: nowrap;
     height: 40px;
-    background-color: blueviolet;
     padding: 2px;
 }
 
@@ -19,7 +21,6 @@
 }
 
 #display{
-    background-color: aliceblue;
     flex-grow: 1;
     margin-left: 0.5%;
     text-align: right;
@@ -30,13 +31,23 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-items: stretch;
-    background-color: aqua;
     justify-content: center;
 }
 
 #buttons input{
-    background-color: lightblue;
     width: 21%;
+    height: 30px;
+
+}
+
+input:hover{
+    border-radius: 0%;
+    background-color: rgba(255, 20, 65, 0.52);
+}
+
+input{
     border: none;
     margin: 1%;
+    border-radius: 5%;
+    background-color: rgba(255, 20, 65, 0.16);
 }
