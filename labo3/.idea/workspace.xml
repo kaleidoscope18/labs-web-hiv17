@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="48e32447-5bf0-4b27-bd3f-9e1a57ab97b7" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../labo2/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../labo2/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/Calculatrice.js" afterPath="$PROJECT_DIR$/js/Calculatrice.js" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,7 +26,7 @@
       <file leaf-file-name="Calculatrice.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/js/Calculatrice.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="539">
+            <state relative-caret-position="35">
               <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
               <folding />
             </state>
@@ -240,7 +238,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3414000" />
+    <option name="totallyTimeSpent" value="3472000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -330,7 +328,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/js/Calculatrice.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="539">
+        <state relative-caret-position="35">
           <caret line="32" column="21" lean-forward="true" selection-start-line="32" selection-start-column="21" selection-end-line="32" selection-end-column="21" />
           <folding />
         </state>
