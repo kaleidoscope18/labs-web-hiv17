@@ -4,6 +4,7 @@
     border-color: crimson;
     background-color: rgba(255, 20, 65, 0.47);
     border-radius: 5%;
+    color: white;
 }
 
 #head{
@@ -50,4 +51,5 @@ input{
     margin: 1%;
     border-radius: 5%;
     background-color: rgba(255, 20, 65, 0.16);
+    color: white;
 }
