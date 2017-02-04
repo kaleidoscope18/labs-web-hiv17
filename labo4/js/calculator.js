@@ -38,10 +38,6 @@ var Calculator = function () {
         return this;
     }
 
-    this.append = function(value) {
-        equation += value;
-    }
-
     this.add = function(value) {
         equation += '+';
         if(typeof value !== 'undefined'){
@@ -87,7 +83,7 @@ var Calculator = function () {
         return this;
     }
 
-    this.tan = function() {
+    this.tan = function(value) {
         equation += 'Math.tan(' + parseFloat(value) + ')'
         return this;
     }

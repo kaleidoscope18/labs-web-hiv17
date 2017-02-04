@@ -2,11 +2,9 @@
  * Created by Nadia on 2017-02-02.
  */
 
-
 var calculator = new Calculator();
-var value = 0;
+var value = '';
 var operator = calculator.value;
-var displayString = '';
 
 var generateUI = function() {
     generateDisplay();
@@ -29,10 +27,15 @@ var generateButtons = function() {
     for(i = 10; i < symbols.length; i++){
         createButton(symbols[i], onOperatorButton(symbols[i]));
     }
+    createButton('sin', onSinButton);
+    createButton('cos', onCosButton);
+    createButton('tan', onTanButton);
+    createButton('!', onFactorialButton);
+    createButton('C', onClearButton());
 }
 
-var createButton = function(number, callback){
-    var btn = $('<input type="button" value="'+number+'"/>');
+var createButton = function(symbol, callback){
+    var btn = $('<input type="button" value="'+symbol+'"/>');
     $("#buttons").append(btn);
     btn.click(callback);
 }
@@ -40,11 +43,13 @@ var createButton = function(number, callback){
 var onNumberButton = function(symbol) {
     return function() {
         value += symbol.toString();
+        updateDisplay(value);
     }
 }
 
 var onOperatorButton = function(symbol) {
     return function() {
+        console.log(symbol);
         operator(value);
         if(symbol == '+'){
             operator = calculator.add;
@@ -52,12 +57,72 @@ var onOperatorButton = function(symbol) {
         else if(symbol == '-'){
             operator = calculator.subtract;
         }
+        else if(symbol == '*'){
+            operator = calculator.multiply;
+        }
+        else if(symbol == '/'){
+            operator = calculator.divide;
+        }
         else if(symbol == '='){
-            console.log(calculator.equals());
+            updateDisplay(calculator.equals());
             operator = calculator.value;
         }
-        value = 0;
+        value = '';
     }
 }
+
+var onSinButton = function(){
+    operator(value);
+    operator = calculator.sin;
+    value = '';
+}
+
+var onCosButton = function(){
+    operator(value);
+    operator = calculator.cos;
+    value = '';
+}
+
+var onTanButton = function(){
+    operator(value);
+    operator = calculator.tan;
+    value = '';
+}
+
+var onFactorialButton = function(){
+    operator(value);
+    operator = calculator.factorial;
+    value = '';
+}
+
+var onClearButton = function(){
+    operator = calculator.value;
+    value = '';
+    calculator.clear();
+    updateDisplay(value);
+}
+
+var updateDisplay = function(value){
+    $("#result-display").html(value);
+}
+
+$(document).ready( function() {
+    function getGeoloc(){
+        navigator.geolocation.getCurrentPosition(updatePosition);
+    }
+
+    function updatePosition(position){
+        console.log('ok');
+        //value = '';
+        //calculator.clear();
+        //operator = calculator.value;
+        $("#result-display").html(
+            "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+    }
+
+    $("#refresh-geoloc-button").click(function (event) {
+        getGeoloc();
+    })
+});
 
 generateUI();
