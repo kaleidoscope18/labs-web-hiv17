@@ -7,16 +7,19 @@ var value = '';
 var operator = calculator.value;
 
 var generateUI = function() {
-    generateDisplay(); //TO ADD
+    generateDisplay();
     generateButtons();
 }
 
 var generateDisplay = function() {
-    $("#calculator").append($('<div id="display"></div>'));
+    $("#calculator").append($('<div id="head"></div>'));
+    $("#head").append($('<input type="button" value="C"/>'));
+    $("#head").append($('<input type="button" value="G"/>'));
+    $("#head").append($('<div id="display"></div>'));
 }
 
 var generateButtons = function() {
-    $("#calculator").append($('<div id="buttons"></div>')); //TO ADD
+    $("#calculator").append($('<div id="buttons"></div>'));
     var symbols = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "+", "-", "*", "/", "="];
     for(var i = 0; i < 10; i++){
         createButton(symbols[i], onNumberButton(symbols[i]));
