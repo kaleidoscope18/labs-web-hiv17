@@ -28,7 +28,7 @@ var generateButtons = function() {
     createButton('cos', onCosButton);
     createButton('tan', onTanButton);
     createButton('!', onFactorialButton);
-    createButton('C', onClearButton());
+    createButton('C', onClearButton);
 }
 
 var createButton = function(symbol, callback){
