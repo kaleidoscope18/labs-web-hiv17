@@ -11,10 +11,11 @@ var generateUI = function() {
     generateButtons();
 }
 
-var generateDisplay = function() {
+var generateDisplay = function(){
     $("#calculator").append($('<div id="head"></div>'));
-    $("#head").append($('<input type="button" value="C"/>'));
-    $("#head").append($('<input type="button" value="G"/>'));
+    $("#head").append($('<input type="button" id="clear-btn" value="C"/>'));
+    $("#clear-btn").click(onClearButton);
+    $("#head").append($('<input type="button" id="geo-btn" value="G"/>'));
     $("#head").append($('<div id="display"></div>'));
 }
 
@@ -31,7 +32,6 @@ var generateButtons = function() {
     createButton('cos', onCosButton);
     createButton('tan', onTanButton);
     createButton('!', onFactorialButton);
-    createButton('C', onClearButton());
 }
 
 var createButton = function(symbol, callback){
@@ -103,7 +103,7 @@ var onClearButton = function(){
 }
 
 var updateDisplay = function(value){
-    $("#result-display").html(value);
+    $("#display").html(value);
 }
 
 $(document).ready( function() {
@@ -112,15 +112,14 @@ $(document).ready( function() {
     }
 
     function updatePosition(position){
-        console.log('ok');
         value = '';
         calculator.clear();
         operator = calculator.value;
-        $("#result-display").html(
-            "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+        $("#display").html(
+            "Lat:" + position.coords.latitude + ", Long:" + position.coords.longitude);
     }
 
-    $("#refresh-geoloc-button").click(function (event) {
+    $("#geo-btn").click(function (event) {
         getGeoloc();
     })
 });
