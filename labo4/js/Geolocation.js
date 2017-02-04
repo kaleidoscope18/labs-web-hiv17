@@ -10,7 +10,9 @@ $(document).ready( function() {
     }
 
     function updatePosition(position){
-        $("#location-display").html(
+        value = '';
+        calculator.clear();
+        $("#result-display").html(
             "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
     }
 
