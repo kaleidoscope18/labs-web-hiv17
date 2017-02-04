@@ -53,44 +53,44 @@ var onOperatorButton = function(symbol) {
         operator(value);
         if(symbol == '+'){
             operator = calculator.add;
+            value = '';
         }
         else if(symbol == '-'){
             operator = calculator.subtract;
+            value = '';
         }
         else if(symbol == '*'){
             operator = calculator.multiply;
+            value = '';
         }
         else if(symbol == '/'){
             operator = calculator.divide;
+            value = '';
         }
         else if(symbol == '='){
             updateDisplay(calculator.equals());
             operator = calculator.value;
+            value = calculator.equals;
         }
-        value = '';
     }
 }
 
 var onSinButton = function(){
-    operator(value);
     operator = calculator.sin;
     value = '';
 }
 
 var onCosButton = function(){
-    operator(value);
     operator = calculator.cos;
     value = '';
 }
 
 var onTanButton = function(){
-    operator(value);
     operator = calculator.tan;
     value = '';
 }
 
 var onFactorialButton = function(){
-    operator(value);
     operator = calculator.factorial;
     value = '';
 }
