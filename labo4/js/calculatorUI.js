@@ -77,22 +77,18 @@ var onOperatorButton = function(symbol) {
 
 var onSinButton = function(){
     operator = calculator.sin;
-    value = '';
 }
 
 var onCosButton = function(){
     operator = calculator.cos;
-    value = '';
 }
 
 var onTanButton = function(){
     operator = calculator.tan;
-    value = '';
 }
 
 var onFactorialButton = function(){
     operator = calculator.factorial;
-    value = '';
 }
 
 var onClearButton = function(){
