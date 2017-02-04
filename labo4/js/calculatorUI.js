@@ -2,11 +2,9 @@
  * Created by Nadia on 2017-02-02.
  */
 
-
 var calculator = new Calculator();
 var value = '';
 var operator = calculator.value;
-var displayString = '';
 
 var generateUI = function() {
     generateDisplay(); //TO ADD
@@ -33,12 +31,10 @@ var generateButtons = function() {
     createButton('C', onClearButton());
 }
 
-var createNumberButton = function(number){
-    var btn = $('<input type="button" value="'+number+'"/>');
+var createButton = function(symbol, callback){
+    var btn = $('<input type="button" value="'+symbol+'"/>');
     $("#buttons").append(btn);
-    btn.click(function(){
-        calculator.value(number);
-    });
+    btn.click(callback);
 }
 
 var onNumberButton = function(symbol) {
@@ -106,5 +102,24 @@ var onClearButton = function(){
 var updateDisplay = function(value){
     $("#result-display").html(value);
 }
+
+$(document).ready( function() {
+    function getGeoloc(){
+        navigator.geolocation.getCurrentPosition(updatePosition);
+    }
+
+    function updatePosition(position){
+        console.log('ok');
+        //value = '';
+        //calculator.clear();
+        //operator = calculator.value;
+        $("#result-display").html(
+            "Latitude: " + position.coords.latitude + ", Longitude: " + position.coords.longitude);
+    }
+
+    $("#refresh-geoloc-button").click(function (event) {
+        getGeoloc();
+    })
+});
 
 generateUI();
