@@ -7,9 +7,14 @@ var currentId = 0;
 var myurl = "http://localhost:5000/tasks";
 
 var addTask = function(idTask, textTask) {
-    $(".taskList").append($('<input type="text" id="'+idTask+'" value="' + textTask + '">'));
-    $("#"+idTask).prepend($('<input type="button" class="delete-btn" id="delBtn-'+idTask+'" value="del"/>'))
-        .click(deleteTask(idTask));
+    $(".taskList").append($(
+        '<div>'
+            + '<input type="text" id="text' + idTask + '" value="' + textTask + '">'
+            + '<input type="button" id="del' + idTask + '" class="delete-btn" value="delete"/>'
+            + '<input type="button" id="edit' + idTask + '" class="edit-btn" value="edit"/>'
+        + '</div>'));
+    $('#del' + idTask).click(deleteTask(idTask));
+    $('#edit' + idTask).click(putTask(idTask));
 };
 
 var refresh = function(data) {
@@ -36,6 +41,23 @@ var postTask = function(text){
     }
 };
 
+var putTask = function(id){
+    return function(){
+        $.ajax({
+            url : myurl + '/' + id,
+            type : 'PUT',
+            data : JSON.stringify({'task': $('#text' + id).val()}),
+            contentType: 'application/json'
+        })
+            .done(function() {
+                updateList();
+            })
+            .fail(function() {
+                console.log("error");
+            });
+    }
+};
+
 var updateList = function() {
     $.ajax({
         url: myurl,
@@ -51,8 +73,8 @@ var updateList = function() {
 };
 
 var deleteTask = function(id){
-    console.log('delete');
     return function() {
+        console.log(id);
         $.ajax({
             url: myurl + '/' + id,
             type: 'DELETE'
