@@ -27,7 +27,7 @@ var postTask = function(){
     $.ajax({
         url : myurl,
         type : 'POST',
-        data : {'task': text},
+        data : JSON.stringify({'task': text}),
         contentType: 'application/json'
     })
         .done(function(data) {
