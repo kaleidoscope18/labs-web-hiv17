@@ -5,10 +5,9 @@
 var currentId = 0;
 
 var refresh = function(data) {
-    // var myData = JSON.parse(data);
-    console.log(data);
-    console.log(data.tasks);
-    // $(".taskList").append($('<ul id="'+idTask+'">'+textTask+'</ul>'));
+    $.each(data.tasks, function(index, value) {
+        $(".taskList").append($('<ul id="'+value.id+'">'+value.task+'</ul>'));
+    })
 };
 
 var updateListMock = function() {
@@ -24,6 +23,9 @@ var updateList = function() {
     })
         .done(function(data) {
             refresh(data);
+        })
+        .fail(function() {
+            console.log("failed to get data");
         });
 };
 
