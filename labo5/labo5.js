@@ -7,37 +7,33 @@ var currentId = 0;
 var myurl = "http://localhost:5000/tasks";
 
 var addTask = function(idTask, textTask) {
-    $(".taskList").empty();
-    $(".taskList").append($('<ul id="'+idTask+'">'+textTask+'</ul>'));
+    $(".taskList").append($('<input type="text" id="'+idTask+'" value="' + textTask + '">'));
     $("#"+idTask).prepend($('<input type="button" class="delete-btn" id="delBtn-'+idTask+'" value="del"/>'))
+        .click(deleteTask(idTask));
 };
 
 var refresh = function(data) {
+    $(".taskList").empty();
     $.each(data.tasks, function(index, value) {
         addTask(value.id, value.task);
     })
 };
 
-var emptyInputArea = function() {
-  $("#taskInputArea").val('Nouvelle tâche');
-};
-
-var postTask = function(){
-    var text = $("#taskInputArea").val();
-    $.ajax({
-        url : myurl,
-        type : 'POST',
-        data : JSON.stringify({'task': text}),
-        contentType: 'application/json'
-    })
-        .done(function(data) {
-            updateList();
-            emptyInputArea();
+var postTask = function(text){
+    return function () {
+        $.ajax({
+            url : myurl,
+            type : 'POST',
+            data : JSON.stringify({'task': text}),
+            contentType: 'application/json'
         })
-        .fail(function(jqXHR, textStatus) {
-            console.log("error");
-        });
-
+            .done(function(data) {
+                updateList();
+            })
+            .fail(function() {
+                console.log("error");
+            });
+    }
 };
 
 var updateList = function() {
@@ -54,7 +50,23 @@ var updateList = function() {
         });
 };
 
+var deleteTask = function(id){
+    console.log('delete');
+    return function() {
+        $.ajax({
+            url: myurl + '/' + id,
+            type: 'DELETE'
+        })
+            .done(function() {
+                updateList();
+            })
+            .fail(function() {
+                console.log("failed to delete task");
+            });
+    }
+};
+
 $(document).ready( function() {
-    $("#taskInputBtn").click(postTask);
-    $("#refreshBtn").click(updateList);
+    $("#taskInputBtn").click(postTask('Nouvelle tâche'));
+    updateList();
 });
