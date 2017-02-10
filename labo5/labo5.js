@@ -7,7 +7,9 @@ var currentId = 0;
 var myurl = "http://localhost:5000/tasks";
 
 var addTask = function(idTask, textTask) {
+    $(".taskList").empty();
     $(".taskList").append($('<ul id="'+idTask+'">'+textTask+'</ul>'));
+    $("#"+idTask).prepend($('<input type="button" class="delete-btn" id="delBtn-'+idTask+'" value="del"/>'))
 };
 
 var refresh = function(data) {
