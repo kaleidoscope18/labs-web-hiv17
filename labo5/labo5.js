@@ -6,13 +6,18 @@ var currentId = 0;
 
 var myurl = "http://localhost:5000/tasks";
 
-var addTask = function(textTask, idTask) {
+var addTask = function(idTask, textTask) {
     $(".taskList").append($('<ul id="'+idTask+'">'+textTask+'</ul>'));
-}
+};
+
 var refresh = function(data) {
     $.each(data.tasks, function(index, value) {
-        $(".taskList").append($('<ul id="'+value.id+'">'+value.task+'</ul>'));
+        addTask(value.id, value.task);
     })
+};
+
+var emptyInputArea = function() {
+  $("#taskInputArea").val('');
 };
 
 var postTask = function(){
@@ -25,16 +30,17 @@ var postTask = function(){
     })
         .done(function(data) {
             updateList();
+            emptyInputArea();
         })
         .fail(function(jqXHR, textStatus) {
             console.log("error");
         });
 
-}
+};
 
 var updateList = function() {
     $.ajax({
-        url: 'http://localhost:5000/tasks',
+        url: myurl,
         type: 'GET',
         contentType: 'application/json'
     })
