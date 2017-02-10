@@ -17,7 +17,7 @@ var refresh = function(data) {
 };
 
 var emptyInputArea = function() {
-  $("#taskInputArea").val('');
+  $("#taskInputArea").val('Nouvelle tâche');
 };
 
 var postTask = function(){
