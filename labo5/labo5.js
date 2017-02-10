@@ -45,8 +45,6 @@ var updateList = function() {
             console.log("failed to get data");
         });
 };
-    console.log('success');
-}
 
 $(document).ready( function() {
     $("#taskInputBtn").click(postTask);
