@@ -20,11 +20,14 @@
     </script>
 </head>
 <body>
-<input type="button" id="taskInputBtn" value="Ajouter"/>
-<script id="taskTemplate" type="text/template">
-    <%= task %>
-</script>
-<script src="TaskModel.js"></script>
-<script src="TaskView.js"></script>
+    <div>
+        <input type="button" id="taskInputBtn" value="Nouvelle tâche"/>
+    </div>
+    <script id="taskTemplate" type="text/template">
+        <%= task %>
+    </script>
+    <script src="TaskModel.js"></script>
+    <script src="TaskView.js"></script>
+    <script src="TaskCollection.js"></script>
 </body>
 </html>

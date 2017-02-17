@@ -1,6 +1,4 @@
-/**
- * Created by Nadia on 2017-02-16.
- */
+
 var TaskView = Backbone.View.extend({
     tagName: 'li',
 

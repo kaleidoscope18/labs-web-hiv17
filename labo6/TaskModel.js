@@ -3,8 +3,6 @@
  */
 Task = Backbone.Model.extend({
 
-    urlRoot: '/tasks',
-
     defaults: {
         task: 'New Task'
     },

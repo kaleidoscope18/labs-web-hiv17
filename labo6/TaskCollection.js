@@ -3,5 +3,6 @@
  */
 
 var TaskCollection = Backbone.Collection.extend({
-    model : Task
+    model : Task,
+    url: "http://localhost:5000/tasks"
 });
