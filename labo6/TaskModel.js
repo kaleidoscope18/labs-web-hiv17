@@ -10,8 +10,8 @@ Task = Backbone.Model.extend({
     },
     initialize: function(){
         this.on("change:task", function(model){
-            var task = model.get("task")
+            var task = model.get("task");
             alert("Changed task to " + task);
         })
     }
-})
+});
