@@ -2,17 +2,14 @@
  * Created by Nadia on 2017-02-16.
  */
 
-var template = function(id){ //template helper
-    return _.template( $('#' + id).html() );
-};
-
 var TaskView = Backbone.View.extend({
     tagName: 'li',
 
     template: template('taskTemplate'),
 
     initialize: function(){
-        this.render();
+        this.model.on('change', this.render, this);
+        this.render()
     },
 
     events: {
@@ -21,6 +18,7 @@ var TaskView = Backbone.View.extend({
 
     editTask: function(){
         var newTask = prompt("Please enter new task", this.model.get('task'));
+        if (!newTask) return;
         this.model.set('task', newTask);
     },
 
