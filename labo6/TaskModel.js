@@ -15,7 +15,3 @@ Task = Backbone.Model.extend({
         })
     }
 })
-
-// instantiate a new task like this:
-// var task1 = new Task({ task: 'faire le
-// menage' })

@@ -20,11 +20,10 @@
     </script>
 </head>
 <body>
-    <div>
-        <input type="button" id="taskInputBtn" value="Ajouter"/>
-    </div>
-    <div class="taskList">
-    </div>
+    <script id="taskTemplate" type="text/template">
+        <%= task %>
+    </script>
     <script src="TaskModel.js"></script>
+    <script src="TaskView.js"></script>
 </body>
 </html>
