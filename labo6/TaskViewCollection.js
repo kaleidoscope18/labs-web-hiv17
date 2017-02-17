@@ -12,5 +12,6 @@ var TaskViewCollection = Backbone.View.extend({
             var taskView = new TaskView({ model: task });
             this.$el.append(taskView.el);
         }, this);
+        return this; //returning for chaining
     }
 });
